@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval() 연습문제</title>
+    <script>
+        let count=0;
+
+        function startCount() {
+            timerId = setInterval('showCount()', 500);
+        }
+
+        function showCount(){
+            count++;
+            countShow.innerHTML = 11-count;
+            bombShow.src = "image/bomb" + count + ".jpg";
+            if (count == 11) {
+                clearTimeout(timerID);
+                count=0;
+            }
+        }
+    </script>
+    <style>
+        body{
+            width: 150px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="countShow">10</h2>
+    <img id="bombShow" src="image/bomb1.jpg">
+    <button onclick="startCount()">카운트 다운 시작</button>
+</body>
+</html>

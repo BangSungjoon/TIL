@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : text() / html()</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        // 문서(document)가 준비완료 되면 함수 실행
+        $(document).ready(function() {
+            $("#a").text("<h1>jQuery</h1>");
+            // text는 태그를 이해하지 못하고 <h1>jQuery</h1> 으로 출력
+            $("#b").html("<h1>jQuery</h1>");
+            // html은 태그를 이해하고 태그 효과 적용 출력
+        });
+    </script>
+</head>
+<body>
+    <div id="a">A</div>
+    <div id="b">B</div>
+</body>
+</html>

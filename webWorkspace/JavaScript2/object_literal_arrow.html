@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 객체 : 리터럴 이용2</title>
+    <script>
+        let person = {
+            // 멤버
+            // (1) 속성 : propterty
+            name : "홍길동",
+            age : 20,
+
+            // (2) 메소드 : 화살표 함수 사용
+            getName : () => {
+                name = "이몽룡"; 
+                return this.name; // 프로퍼티(속성) 값인 '홍길동'을 찾지 못함
+            } // 화살표 함수에서는 this가 존재하지 않는다.
+        };
+
+        console.log(person.getName()); // 이몽룡
+
+        // 따라서 리터럴 방식에서는 화살표 함수를 사용하지 않는다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

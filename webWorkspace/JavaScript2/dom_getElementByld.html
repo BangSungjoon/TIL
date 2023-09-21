@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : getElementById()</title>
+    <script>
+        function change() {
+            // 태그 id가 'header'인 것을 찾아서 객체 반환
+            let header = document.getElementById('header');
+
+            // header 요소의 텍스트 내용 변경 : innerHTML 속성
+            header.innerHTML = "변경된 제목";
+        }
+
+    </script>
+</head>
+<body>
+    <h2 id="header">제목</h2>
+    <button id="btn" onclick="change()">제목 변경</button>
+</body>
+</html>

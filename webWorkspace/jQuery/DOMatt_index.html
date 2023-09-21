@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : attr()</title>
+    <style>
+         img { width:300px; height: 150px;}
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        // 문서(document)가 준비완료 되면 함수 실행
+        $(document).ready(function() {
+            // 각 이미지에 마우스 올렸을 때 1-1은 2-1로, 1-2는 2-2로, ...
+            $('img').each(function(index){
+                $(this).hover(
+                    function() { // 마우스 올렸을 때 수행되는 함수
+                        $(this).attr('src', 'image/img2-' + (index+1) + '.jpg');
+                    },
+                    function() { // 마우스 땠을 때 수행되는 함수
+                        $(this).attr('src', 'image/img1-' + (index+1) + '.jpg');
+                    }
+                ); // hover() 종료
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="image/img1-1.jpg"><img src="image/img1-2.jpg"><img src="image/img1-3.jpg"><img src="image/img1-4.jpg">
+</body>
+</html>

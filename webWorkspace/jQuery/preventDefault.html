@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preventDefault()</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#link').on("click", function(e){
+                e.preventDefault();
+                alert("일시적 이동 정지")
+            });
+
+            // 문서 상에서 오른쪽 마우스 클릭했을 때 이벤트 처리
+            document.oncontextmenu = function(e) {
+                e.preventDefault();
+                alert("오른쪽 마우스 클릭 금지");
+            }
+        });
+    </script>
+</head>
+<body>
+    <a href="https://www.naver.com" id="link">네이버로 이동</a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>animate() 효과</title>
+        <style type="text/css">	
+			div {
+				width: 50px; height: 50px;
+				background-color: rgb(0, 176, 240);
+				position: relative;
+        	}
+			#box2 { top:100px; }		
+		</style>
+		<script src= "jquery-3.7.1.min.js"></script>	
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#box1').animate({left: '+=100'}, 1000) // 오른쪽으로 100씩 이동
+						  .animate({width: '+=100'}, 2000) // 가로길이
+						  .animate({height: '+=100'}, 2000); // 세로길이
+
+				// 6초 후에 함수 실행
+				setTimeout(function() {
+					// 애니메이션 큐 제거
+					$('div').clearQueue();
+					$('div').hide();
+				}, 6000);
+
+				$('#box2').animate({left: '+=100'}, 1000) // 오른쪽으로 100씩 이동
+						  .animate({width: '+=100'}, 2000) // 가로길이
+						  .animate({height: '+=100'}, 2000); // 세로길이
+			});
+		
+		
+		</script>       
+    </head>       
+    <body>    
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </body>
+</html>

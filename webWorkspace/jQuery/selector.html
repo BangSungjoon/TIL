@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('*').css('color', 'red'); // 전체 선택자 : *
+
+            // 태그 선택자
+            $('h1').css('background', 'yellow');
+        });
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h2>Header</h2>
+    <h2>Header</h2>
+</body>
+</html>

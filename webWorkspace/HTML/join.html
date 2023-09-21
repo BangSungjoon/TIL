@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join 예제</title>
+</head>
+<body>
+    <h1 align="center">회원가입</h1>
+    <hr>
+    <table border="0" align="center">
+        <thead>
+            <tr><td>성명</td><td><input type="text" size="15" autofocus></td></tr>
+            <tr><td>아이디</td><td><input type="text" size="15" name="id"> <input type="button" value="아이디 중복 확인"> (영문자 + 특수문자: 6~10자)</td></tr>
+            <tr><td>비밀번호</td><td><input type="password"> (영문자 + 숫자 + 특수문자: 10~20자)</td></tr>
+            <tr><td>비밀번호 확인</td><td><input type="password"></td></tr>
+            <tr><td>생년월일</td><td><input type="birthday" size="5">년 <select name="month">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select> 월<select name="day">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select> 일<label><input type="radio" name="sun" value="sun" checked > 양력</label>
+             <label><input type="radio" name="moon" value="moon" > 양력</label></td></tr>
+            <tr><td>전화번호</td>
+                <td><select name="num">
+                    <option value="02" selected>02</option>
+                    <option value="031">031</option></select>
+                 - 
+                <label><input type="password" size="5"></label>
+                 - 
+                <label><input type="password" size="5"></label></td>
+            </tr>
+            <tr><td>휴대폰번호</td>
+                <td><select name="num">
+                    <option value="010" selected>010</option>
+                    <option value="016">016</option>
+                    <option value="011">011</option></select>
+                    
+                 - 
+                <label><input type="password" size="5"></label>
+                 - 
+                <label><input type="password" size="5"></label></td>
+            </tr>
+            <tr><td> </td>
+                <td><input type="password"> <input type="button" value="우편번호찾기">      
+            </tr>
+            <tr><td>주소</td>
+                <td><input type="address" size="40"></td>      
+            </tr>
+            <tr><td> </td>
+                <td><input type="address" size="40"> 상세 주소 입력</td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <label><input type="radio", name="gender" value="1" checked>남</label>
+                    <label><input type="radio", name="gender" value="0">여</label>
+                </td>
+            </tr>
+            <tr><td>직업</td>
+                <td><select name="job">
+                    <option value="111" selected>프로그래머</option>
+                    <option value="222">군인</option></select>
+                </td>
+            </tr>
+            <tr><td>이메일</td>
+                <td><input type="text" size="7">@<select name="mail">
+                    <option value="131" selected>naver.com</option>
+                    <option value="050">gmail.com</option></select>
+                </select></td>
+            </tr>
+            <tr><td>이메일 수신 여부</td>
+            <td>
+                <label><input type="radio", name="choice" value="1" checked>예</label>
+                <label><input type="radio", name="choice" value="0">아니오</label>
+            </td></tr>
+            <tr><td>관심분야</td>
+                <td><label><input type="checkbox" name="pront" value="프론트엔드" checked >프론트엔드</label>
+                    <label><input type="checkbox" name="back" value="백엔드" >백엔드</label>
+                    <label><input type="checkbox" name="full" value="풀스택" >풀스택</label>
+                    <label><input type="checkbox" name="full" value="자바" >자바 프로그래밍</label>
+                </td>
+            </tr>
+        </thead>
+    </table>
+    <div align="center">
+        <input type="submit" value="회원가입"> <input type="reset" value="취소">
+    </div>
+</body>
+</html>

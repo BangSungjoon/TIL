@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+    <script>
+        // var 문제
+        // var : 동일 변수명 재선언 가능
+
+        var name = "홍길동";
+        document.write(name + "<br>");
+
+        var name = "이몽룡";
+        document.write(name + "<br>"); //오류가 나지 않는다;
+
+        // var로 선언된 동일 변수명을 let으로 중복 선언 불가. 오류
+        /* let name = "성춘향";
+        document.write(name + "<br>"); */
+        //이미 선언되었다고 오류 발생
+
+        // let : 동일 변수명으로 중복 선언 불가. 오류
+        // let address = "서울";
+        // let address = "제주";
+
+        document.write(address);
+        var address = "서울";
+
+    </script>
+</head>
+<body>
+</body>
+</html>

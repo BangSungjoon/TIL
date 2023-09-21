@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>append()/prepend()/after()/before()</title>
+        <style type="text/css">		 	
+			#box { width:500px; height: 200px; line-height:200px; 
+			                  border:1px solid #000; }
+			img {vertical-align:middle;}					
+		</style>	
+		<script src= "jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {		  
+			   let img = "<img src='image/banana.png>";
+
+               $('#append').on('click', function() {
+                $('#box').append(img);
+               });
+
+               $('#before').on('click', function() {
+                $('#box').before(img);
+               });
+
+               $('#after').on('click', function() {
+                $('#box').after(img);
+               });
+
+               // [empty] 버튼을 클릭했을 때
+               $('#empty').on('click', function() {
+                // 선택자 box의 안의 요소들 제거 (box 안을 비움)
+                $('#box').empty(img);
+               });
+
+               // [remove] 버튼을 클릭했을 때
+               $('#empty').on('click', function() {
+                // 선택자 제거 (img 제거)
+                $('img').remove();
+               });
+
+               // [initiate] 버튼을 클릭했을 때
+               $('#initiate').on('click', function() {
+                // 선택자 제거 (img 제거)
+                $('img').remove();
+                $('div').empty().append("div 내부 <img src='image/apple.png'>");
+               });
+			});
+		</script>
+	</head>
+
+    <body>
+        <button id="prepend" >prepend</button> 
+        <button id="append" >append</button> 
+        <button id="before" >before</button> 
+        <button id="after" >after</button> 
+        <button id="empty" >empty</button> 
+        <button id="remove" >remove</button> 
+        <button id=initiate >초기화</button>
+        <p>
+        <div id="box">
+        	div 내부 <img src='image/apple.png'>
+        </div>    
+    </body>
+</html>

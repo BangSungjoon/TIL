@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상태 선택자</title>
+    <style>
+        /* <input> 태그가 사용 가능한 경우에 입력한 white */
+        input:enabled { background-color: white;}
+
+        /* <input>태그가 사용 불가능한 경우에 입력한 skyblue */
+        input:disabled {background-color: skyblue;}
+
+        /* <input> 태그에 포커스 받을 때 입력한 orange */
+        input:focus {background-color: orange;}
+    </style>
+</head>
+<body>
+    <h3>사용 가능</h3>
+    아이디 : <input type="text" size="10">
+
+    <h3>사용 불가능</h3>
+    우편번호 <input type="text" size="10" value="12345" disabled>
+</body>
+</html>

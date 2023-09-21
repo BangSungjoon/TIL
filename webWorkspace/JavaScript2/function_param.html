@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 매개변수</title>
+    <script>
+        // 예금액과 이자율을 입력 받아서
+        // 예금이자를 출력하는 함수
+        function input() {
+            let deposit = parseInt(prompt("예금액 입력"));
+            let rate = Number(prompt("이자율 입력"));
+
+            // 예금 이자 계산을 위해서 calInterest() 함수 호출
+            // 예금액과 이자율을 전달
+            calInterest(deposit, rate);
+        }
+
+        // 예금액과 이자율을 전달받아서 (매개변수가 받아서 사용)
+        // 예금 이자를 구해서 출력하는 함수
+        // 매개변수 : deposit, rate
+        // 매개변수를 함수의 지역변수로 사용
+        function calInterest(deposit, rate) {
+            // 예금 이자 계산
+            let interest = deposit * rate / 100;
+            document.write("예금이자 : " + interest + "원");
+        }
+    </script>
+</head>
+<body onload="input()">
+    
+</body>
+</html>

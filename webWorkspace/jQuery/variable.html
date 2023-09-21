@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+    <script src= "jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+			// 변수
+			let $box1 = $('#box1');
+            $box1.css('color', 'red');
+
+            // $ 안 붙인 경우
+            // $를 붙이지 않았어도 메소드 다 사용 가능
+            let box2 = $('#box2'); // 객체 object
+            box2.css('color', 'blue');
+
+            // 값을 저장할 경우에는 $ 안 붙여도 됨
+            let divLen = $('div').length; // 값 : <div> 태그 개수 저장
+            box2.text(divLen); // 텍스트 출력 메소드 (괄호안의 값으로 텍스트 설정)
+		
+            // 주의!
+            // 자바스크립트 코드로 선택한 경우 jQuery 메소드 사용할 수 없음
+            let box3 = document.getElementById('box3');
+            box3.css('color', 'green'); // 오류발생
+        });
+    </script>
+</head>
+<body>
+    <div id="box1">box1</div>
+    <div id="box2">box2</div>
+    <div id="box3">box3</div>
+</body>
+</html>

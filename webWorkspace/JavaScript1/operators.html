@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+    <script>
+        let count = 0;
+        // 혼자 사용할 경우 앞/뒤 위치 상관 없음
+        // count++;
+        ++count;
+        console.log(count);
+
+        // 위치 주의
+        let x = 10;
+
+        // 변수 뒤에 위치 : 변수값 먼저 사용한 후 증가
+        let y = x++; // 먼저 x(10)을 y에 저장한 후, x값 1증가
+        console.log(y);
+        console.log(x);
+
+        // 2. 논리 부정 연산자 : !
+
+        let a = true;
+        let b = !a;
+
+        console.log(b);
+
+        // 3. 관계 연산 (비교 연산자)
+        let n1 = 10;
+        let n2 = 20;
+
+        console.log(n1 > n2); //false
+        console.log(n1 != n2)
+
+        // 4. 논리 연산자 : &&, ||
+        let num = 17; //9
+        console.log(num % 3 == 0 || num % 4 == 0);
+        // 3 또는 4의 배수이면 true
+
+        num = 15;
+        console.log(num > n1 && num > n2); //false
+
+        // 5. 3항 연산자 (조건 연산자) : ?:
+        let score = 85;
+        let result = (score > 90 ? 'A' : (score > 80) ? 'B' : "FAIL");
+        document.write(result);
+
+        // 6. 누적 대입 연산자
+        let sum = 0;
+        let n = 20;
+
+        // sum = sum + n;
+        sum += n; // 누적 대입 연산자
+        console.log(sum);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

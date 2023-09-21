@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 객체 : class 사용</title>
+    <script>
+        class Person {
+            // 생성자
+            constructor(name, age) {
+                //프로퍼티 정의
+                this.name = name;
+                this.age = age;
+            }
+
+            // Getter : name 프로퍼티 반환 (_(언더바) 붙여야 함)
+            // 프로퍼티 값을 반환하는 메소드
+            get name() {
+                return this._name;
+            }
+
+            get age() {
+                return this._age;
+            }
+
+            // Setter : 프로퍼티에 값 설정 (_(언더바) 붙여야 함)
+            // 설정할 값은 매개변수로 받아옴
+            set name(name) {
+                // 프로퍼티 = 값(매개변수);
+                this._name = name;
+            }
+
+            set age(age) {
+                this._age = age;
+            }
+            // 필요한 메소드 추가 : 프로퍼티 사용 가능 (this 붙여서 사용)
+            toString() {
+                return this.name + "은 " + this.age + '살입니다.';
+            }
+        }
+
+        // 객체 생성 : new 클래스명();
+        // 객체 생성 시 생성자 자동 호출되면서 프로퍼티 값 초기화 됨
+        // 인스턴스 p1
+        // 인스턴스 p2
+        // 전체 총칭 : 객체
+        let p1 = new Person('홍길동', 25);
+        let p2 = new Person('이몽룡', 30);
+
+        // 프로퍼티 값을 가져오기 위해서는 Getter 호출 : 괄호() 없이 사용
+        console.log('성명 : ' + p1.name + ', 나이 : ' + p1.age);
+        console.log('성명 : ' + p2.name + ', 나이 : ' + p2.age);
+
+        // toString() 메소드 호출
+        console.log(p1.toString());
+        console.log(p2.toString());
+
+        // 값 변경 : 값을 새롭게 설정 --> setter 호출 : 괄호() 없음
+        p1.age = 27;
+        console.log(p1.toString());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

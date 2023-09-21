@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <script>
+        //함수 내에서 다른 함수 호출
+
+        function start() {
+            let answer = confirm("배경색을 변경하시겠습니까?");
+            if(answer) {
+                //배경색을 변경하는 함수 호출
+                changecolor();
+            } else {
+                alert("취소하였습니다.");
+            }
+        }
+
+        // 배경색을 변경하는 함수
+        function changecolor() {
+            let color = prompt("색상 입력");
+            document.write(color);
+            document.bgColor = color;
+        }
+
+        start(); // 함수 호출
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

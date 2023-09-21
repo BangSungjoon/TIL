@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드</title>
+    <script>
+        let card = confirm("카드로 결제합니까?");
+
+        if (card == true) {
+            let answer = prompt("카드번호를 입력하세요.","1111-2222-3333-4444");
+            document.write("카드번호 : " + answer);   
+        } else {
+            document.write("카드로 결제하지 않습니다");
+        }
+
+        // 자바스크립트는 꼭 변수를 선언하지 않아도 괜찮다.
+        // 변수를 필요한 곳에서 사용하면 자동으로 생성됨
+        // 변수의 데이터 타입은 실행 시 결정 (동적 타이핑)
+        // 명시적으로 선언 - let / var/ const를 사용해서 사용하기 전에 미리 명시적으로 선언
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,86 @@
+#wrap {
+    margin: 0 auto;
+    width: 800px;
+    text-align: center;
+}
+
+#mainmenuBox {
+    height: 35px;
+    line-height: 35px; /* 줄간격 - 수직으로 가운데 정렬 효과 */
+    background-color: #333;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#mainmenuBox ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#mainmenuBox ul li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+#mainmenuBox ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;    
+}
+
+#mainmenuBox ul li a:hover{
+    color: red;
+    text-decoration: underline;
+    background-color: yellow; 
+}
+
+.product {
+    margin-bottom: 30px;
+}
+
+.product div {
+    display: inline-block;
+    margin: 20px;
+}
+
+.prdName {
+    color: blue;
+    font-weight: bold;
+}
+
+.prdPrice {
+    color: red;
+}
+
+.box {
+    display: inline-block;
+    width: 320px;
+    height: 160px;
+    border: solid 1px grey;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    text-align: left;
+}
+
+.box a {
+    text-decoration: none;
+}
+
+.box a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+img {
+    margin-bottom: 20px;
+}
+
+hr {
+    margin-bottom: 10px;
+}

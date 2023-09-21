@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 키워드 사용 연습문제</title>
+    <script>
+        class Rectangle {
+            // 생성자
+            constructor(width, height) {
+                //프로퍼티 정의
+                this.width = width;
+                this.height = height;
+            }
+
+            // Getter : name 프로퍼티 반환 (_(언더바) 붙여야 함)
+            // 프로퍼티 값을 반환하는 메소드
+            get width() {
+                return this._width;
+            }
+
+            get height() {
+                return this._height;
+            }
+
+            // Setter : 프로퍼티에 값 설정 (_(언더바) 붙여야 함)
+            // 설정할 값은 매개변수로 받아옴
+            set width(width) {
+                // 프로퍼티 = 값(매개변수);
+                this._width = width;
+            }
+
+            set height(height) {
+                this._height = height;
+            }
+            // 필요한 메소드 추가 : 프로퍼티 사용 가능 (this 붙여서 사용)
+            getArea() {
+                return this.width * this.height;
+            }
+        }
+
+        // 객체 생성 : new 클래스명();
+        // 객체 생성 시 생성자 자동 호출되면서 프로퍼티 값 초기화 됨
+        // 인스턴스 p1
+        // 전체 총칭 : 객체
+        let p1 = new Rectangle(30, 10);
+
+        // 프로퍼티 값을 가져오기 위해서는 Getter 호출 : 괄호() 없이 사용
+        console.log('가로 : ' + p1.width + ', 세로 : ' + p1.height);
+        console.log("사각형의 넓이 : ", p1.getArea());
+
+        p1.width = 20;
+        p1.height = 30;
+        console.log("사각형의 넓이 : ", p1.getArea());
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

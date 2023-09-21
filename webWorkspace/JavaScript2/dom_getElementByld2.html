@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : getElementById()</title>
+    <style>
+        div { margin: 0 auto; width: 70; text-align: center; }
+    </style>
+    <script>
+        function change() {
+            let img = document.getElementById('imgA');
+            let hint = document.getElementById('hint');
+            let changeButton = document.getElementById('changeButton')
+
+            // 속성 설정 (변경될 값)
+            imgA.src = "image/B.png";
+            hint.innerHTML = "새로운 이미지로 변경되었습니다.";
+            hint.style.background = "red";
+            changeButton.innerHTML = "변경 완료";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img id="imgA" src="image//A.png" alt="">
+        <div id="hint">[변경] 버튼을 누르면 이미자가 바뀝니다.</div><br><br>
+        <button id="changeButton" onclick="change()">변경</button>
+    </div>
+</body>
+</html>

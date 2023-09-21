@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 객체</title>
+    <script>
+        // 객체 생성1 : propterty(속성)과 메소드
+        let person = {
+            // 멤버
+            // (1) 속성 : propterty
+            name : "홍길동",
+            age : 20,
+
+            // (2) 메소드
+            getName : function() {
+                return this. name;
+                // this : 객체 자신을 가리키는 레퍼런스
+                // 객체의 멤버(속성)를 사용할 때는 반드시 this 붙여야 함
+            }
+
+        //     // 참고 : this 없이 name을 사용할 경우
+        //     getName : function() {
+        //         name = "이몽룡"; // 메소드 내에서 사용하는 변수
+        //         console.log(name, this.name); //이몽룡 홍길동
+        //         return name; // 이몽룡
+        //     }
+        };
+
+        // 객체 사용
+        // 객체.속성, 객체.메소드()
+        console.log(person.name);
+        console.log(person.age);
+        console.log(person.getName());
+
+        // 객체 생성2 : 프로퍼티(속성)만 포함
+        let car = {
+            no:'11가1234',
+            name:'소나타',
+            maker:'현대',
+            year:2022,
+            cc:2000
+        };
+
+        // 프로퍼티 값 1개 출력
+        console.log(car.no);
+
+        // 전체 프로퍼티 값 출력 : index 출력
+        for(let i in car) { // i : index : no, name, maker, year, cc
+            console.log(i);
+        }
+
+        // 전체 프로퍼티 값 출력
+        for(let i in car) {
+            console.log(car[i]);
+        }
+
+        // 객체 생성3
+        let circle = {
+            center : {x:1.0, y:2.0},
+            radius : 2.5,
+
+            getArea : function() {
+                return this.radius * this.radius * 3.14;
+            },
+            showcenter : function() {
+                console.log("center : ", this.center.x, ", ", this.center.y);
+            }
+        };
+
+        // 객체 사용 : 객체.프로퍼티, 객체.메소드
+        console.log(circle. radius);  // 2.5
+        console.log(circle.center.x, circle.center.y); // 1 2
+        console.log(circle.getArea()); // 19.625
+        // 반환값이 없는 메소드 호출
+        circle.showcenter(); // center 1, 2
+        console.log(circle.showcenter()); // center 1, 2 / undefined : 반환값 없음
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

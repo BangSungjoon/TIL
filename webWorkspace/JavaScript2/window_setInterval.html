@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window 객체 : setInterval()</title>
+    <script>
+        function showTime() {
+            let now = new Date();
+
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+
+            let time = hour + "시 " + minute + "분 " + second + "초";
+            // id가 timeshow인 요소의 텍스트 출력(innerHTML 속성 사용)
+            timeShow.innerHTML = time;
+        }
+    </script>
+</head>
+<body>
+    <!-- 타이머 설정 버튼 -->
+    <!-- 1초 간격으로 현재 시간 출력 -->
+    <button onclick="timerId=setInterval('showTime()', 1000)">시간 출력</button>
+    <!-- 타이머 해제 버튼 -->
+    <button onclick="clearInterval(timerID)">시간 정지</button>
+    <h2 id="timeShow">여기에 시간 출력</h2>
+</body>
+</html>

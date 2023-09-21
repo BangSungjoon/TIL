@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math.random()</title>
+    <script>
+        // Math.random() 사용하여 난수 발생
+        for(let i=1; i<=10; i++){
+            // (1) 0.0x ~0.9x 사이의 실수 형태의 값으로 난수 발생
+            // let num = Math.random();
+            // document.write(num + "<br>");
+
+            // (2) 곱하기 10하면 0~9 범위의 실수값으로 변경
+            // let num = Math.random() * 10;
+            // document.write(num + "<br>");
+
+            // (3) 곱하기 10하면 0 ~ 9 범위의 정수값으로 변경
+            // 0 ~ 9 사이의 정수로 변환
+            // let num = Math.floor(Math.random() * 10);
+            // document.write(num + "<br>");
+
+            // (4) 범위를 1 ~ 10으로 하기 위해 1을 더함
+            // 1부터 시작해서 10개
+            let num = 1 + Math.floor(Math.random() * 10);
+            document.write(num + "<br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

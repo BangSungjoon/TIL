@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 찾기</title>
+    <style>
+        #memuBox div {
+            float: left;
+            background-color: green;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+    <script src= "jquery-3.7.1.min.js"></script>
+    <script>
+        // 문서(document)가 준비완료 되면 함수 실행
+        $(document).ready(function() {
+            let $menuItem = $('.menuItem');
+
+            // index 값 출력 : <span> 태그 선택
+            let $indexSpan = $('#indexSpan');
+
+            // 각 <div> 객체에 대해 수행 : each() 메소드 사용
+            $menuItem.each(function(index){
+                $(this).hover(
+                    function() { // 마우스 올렸을 때 수행되는 함수
+                        $(this).css('background', 'yellow');
+                        $indexSpan.text(index);
+                    },
+                    function() { // 마우스 땠을 때 수행되는 함수
+                        $(this).css('background', 'green');
+                        $indexSpan.text("");
+                    }
+                ); // hover() 종료
+            }); // each() 종료
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h2>인덱스 : <span id="indexSpan">index</span></h2>
+        <div id="memuBox">
+            <div class="menuItem"></div>
+            <div class="menuItem"></div>
+            <div class="menuItem"></div>
+            <div class="menuItem"></div>
+        </div>
+    </div>
+</body>
+</html>

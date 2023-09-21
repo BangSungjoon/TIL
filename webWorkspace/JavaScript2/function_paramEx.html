@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 매개변수 연습문제</title>
+    <script>
+        function input() {
+            let a = parseInt(prompt("테이블의 행 수 입력"));
+            let b = parseInt(prompt("테이블의 열 수 입력"));
+
+            makeTable(a, b);
+        }
+
+ 
+        function makeTable(a, b) {
+            document.write("<table border='1'>")
+            for (i=0; i<a; i++){
+                document.write("<tr>");
+                for (j=0; j<b; j++){
+                    document.write("<td>★</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>")
+        }
+    </script>
+</head>
+<body onload="input()">
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>패턴1</title>
+    <meta charset="UTF-8">    
+    <style>
+        * { 
+            margin:0; 
+            padding: 0;
+        }
+
+        body {
+            width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #menu {
+            width: 260px;
+            float: left;
+        }
+
+        #section {
+            width: 700px;
+            float: right; /* left로 입력해도 상관 없음 */
+        }
+
+		@media screen and (max-width:767px){
+			/* 스마트폰 사이즈에서는 전부 해제 */
+			body {width: auto;}
+			#menu { width: auto; float: none;}
+			#section { width: auto; float: none;}
+		}
+
+    	</style>
+	</head>
+	<body>
+	    <div id="menu">
+	        <ul>
+	            <li>메뉴A</li>
+	            <li>메뉴B</li>
+	            <li>메뉴C</li>
+	        </ul>
+	    </div> 
+	    <div id="section">
+	        <h1>뉴스</h1>
+	        <p>[앵커]국내에서 오미크론 변이 감염자가 1명 더 늘었습니다.
+					나이지리아 방문 후 변이 화진팡정을 받은 부부의 10대 아들인데요.
+					보도국 취재 기자 연결합니다. 방준혁 기자.</p>
+					
+			<p>[기자]
+					앞서 오미크론 변이 감염 사실이 확인된 40대 부부의 아들입니다.
+					인천에 거주 중인 40대 목사부부는 나이지리아를 여행하고 지난달 24일 입국해 이튿날 확진 판정을 받았습니다.
+					방역 당국은 이들 부부를 비롯해 이들 이동을 도운 우즈베키스탄 국적의 30대 남성 1명, 마찬가지로 나이지리아를 방문하고 지난달 23일 입국한 경기도 거주 50대 여성 2명 등 모두 5명을 국내 첫 오미크론 변이 확진자로 분류했습니다.
+					40대 부부의 아들이 추가되면서 국내에서 오미크론 변이에 확진된 사람은 모두 6명으로 늘었습니다.
+					이들 감염자 6명의 가족과 지인 등을 포함해 현재까지 접촉자가 최소 270명 이상인 것으로 파악되면서 오미크론 감염 확산 우려도 커지고 있습니다.   </p>
+	    </div>
+  </body>
+</html>

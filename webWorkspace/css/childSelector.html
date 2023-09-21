@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식 선택자</title>
+    <style>
+       #header > h1 { color: red;}
+       #header > #nav > h2 { color: blue;}
+
+       /* 테이블 태그에 css 적용 시 주의 */
+       /* tbody가 자동 포함되어 있음 */
+       table > tbody > tr > th { color: red;}
+
+       /* <table> 태그에는 자손 선택자 사용 추천 */
+       /* table th { color: blue;} */
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 class="title">header - h1 제목</h1>
+        <div id="nav">
+            <h1>header - nav - h1 제목</h1>
+            <h2>header - nav - h2 제목</h2>
+        </div>
+    </div>
+
+    <div id="section">
+        <h2 class="title">section - h2 제목</h2>
+    </div>
+
+    <!-- 테이블 태그 사용 시 주의 -->
+    <table border="1">
+        <tr><th>이름</th><th>주소</th></tr>
+        <tr><td>홍길동</td><td>서울시 강남구 1번지</td></tr>
+    </table>
+</body>
+</html>

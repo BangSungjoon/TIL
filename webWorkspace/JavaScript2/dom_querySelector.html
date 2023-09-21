@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : querySelector()</title>
+    <script>
+        window.onload = function() {
+            // 여러 요소에 동일한 선택자가 중복 적용되어 있는 경우
+            // 첫 번째 요소 1개만 선택
+            // let header = document.querySelector('h1'); //태그 선택자 사용
+            let header = document.querySelector('h1'); //태그 선택자 사용
+
+            // 속성 설정
+            header.style.color = "orange";
+            header.style.background = "red";
+            header.innerHTML = "querySelector() 사용";
+        };
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1 id="header1">Header</h1>
+    <h1 id="header1">Header</h1>
+</body>
+</html>

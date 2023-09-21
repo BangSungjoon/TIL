@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>형 변환</title>
+    <script>
+        /* 
+            prompt() 함수로 입력 받은 값은 문자
+            연산을 할 경우에
+                + 는 문자열 연결 연산자이므로 두 문자열을 연결
+                    문자열에 + 사용할 경우 문자열 연산이 먼저 수행
+                * 는 문자열 연산에 해당되지 않으므로 자동으로 숫자 연산 수행 (자동 형변환)
+        */
+
+        // (1) 형변환 하지 않은 경우 : 문자로 입력
+        let num1 = prompt("숫자1 입력");
+        let num2 = prompt("숫자2 입력");
+
+        // 산술 연산
+        document.write(num1 + num2 + "<br>"); //문자열 연산 ( + : 연결 )
+        document.write(num1 * num2 + "<br>"); //문자열에는 곱하기가 없기 때문에 자동으로 변환해서 50이 나온다.
+
+        // (2) 정수 형변환
+        let a = parseInt(prompt("숫자3 입력"));
+        let b = parseInt(prompt("숫자4 입력"));
+        // 산술 연산
+        document.write(a + b + "<br>");
+        document.write(a * b + "<br>");
+
+        // (3) 실수 형변환
+        let c = Number(prompt("숫자5 입력"));
+        let d = Number(prompt("숫자6 입력"));
+        document.write(c + d + "<br>");
+        document.write(c * d + "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

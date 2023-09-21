@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopImmediatePropagation()</title>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        // 문서(document)가 준비완료 되면 함수 실행
+        $(document).ready(function() {
+            $('#btn').on('click', function(e){
+                // 현재 이벤트의 다른 리스터 중지
+                // "click1"만 출력
+                e.stopImmediatePropagation();
+                alert("click1");
+            });
+
+            $('#btn').on('click', function(){
+                alert("click2");
+            });
+
+            $('#btn').on('click', function(){
+                alert("click3");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">클릭</button>
+</body>
+</html>

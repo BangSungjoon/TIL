@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : createElement()</title>
+    <script>
+        window.onload = function() {
+            // 1단계 요소(노드) 생성 및 속성 설정
+            let image =document.createElement('img');
+
+            // 속성 설정
+            image.src = "image/bird.jpg";
+            image.width = 250;
+            image.height = 180;
+            image.title = "예쁜 새";
+
+            // 2단계 : 문서에 출력 : body에 appendChild()
+            document.body.appendChild(image);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

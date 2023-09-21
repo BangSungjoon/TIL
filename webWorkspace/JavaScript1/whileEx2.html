@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 함수에 스위치 적용하기</title>
+    <script>
+        let i = parseInt(prompt("숫자 입력"));
+        let count = 1;
+
+        while(count <= i) {
+            switch(count % 3) {
+                case 1: document.write("<img src='image/cherry.PNG'>"); break;
+                case 2: document.write("<img src='image/bomb.PNG'>"); break;
+                case 0: document.write("<img src='image/apple.PNG'>"); break;
+            }
+            count++;
+        }
+
+    </script>
+</head>
+<body>
+</body>
+</html>

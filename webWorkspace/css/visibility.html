@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투명도 / 가시성</title>
+    <style>
+        /* 마우스 올렸을 때 반투명 */
+        #f1:hover { opacity: 0.5;}
+
+        /* 마우스로 클릭했을 때 불투명 */
+        #f1:active { opacity: 1;}
+
+        /* 마우스로 클릭했을 때 안 보임 */
+        #f2:active { visibility: hidden;}
+    </style>
+</head>
+<body>
+    <img id="f1" src="image/fashion1.png">
+    <img id="f2" src="image/fashion2.png">
+</body>
+</html>

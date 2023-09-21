@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스블 박스</title>
+    <style>
+        /* 플렉서블 박스 : colum 방향 (위 -> 아래) */
+
+
+        * {margin: 0; padding: 0;}
+
+        .container{
+            /* (1) 플렉서블 박스 배치 형태 */
+            /* display: flex; */ /* flex : 디폴트 (block 형태) */
+            display: flex; /* inline-flex : (수평 배치) */
+            width: 200px;
+            height: 150px;
+            border: solid 1px black;
+            margin: 5px;
+
+            /* (2) 플렉스 아이템 배치 형태 */
+            flex-direction: column;
+
+            /* (3) 아이템 정렬 방식 */
+            /* justify-content: space-between; 간격 */
+            /* justify-content: space-around; 간격 + 양옆 공간 */
+            /* justify-content: center; */
+            /* justify-content: space-evenly; 동일 간격 */
+            justify-content: flex-end;
+        }
+
+        /* column 방향인 경우 width는 부모 박스와 동일 */
+        /* width, height 다 지정 해야함 */
+        .container div {
+            width: 100%;
+            height: 20%;
+        }
+
+        .container div:nth-child(1) {
+            background-color: red;
+        }
+
+        .container div:nth-child(2) {
+            background-color: blue;
+        }
+
+        .container div:nth-child(3) {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div></div><div></div><div></div>
+    </div>
+    <div class="container">
+        <div></div><div></div><div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : addEventListener()</title>
+    <script>
+        window.onload = function() {
+            let btn = document.getElementById('btn');
+
+            // btn 객체에 일반함수 2번 적용
+            btn.addEventListener("click", show1);
+            btn.addEventListener("click", show2);
+        };
+
+        function show1() {
+            alert("실행1");
+        }
+
+        function show2() {
+            alert("실행2");
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">버튼</button>
+</body>
+</html>

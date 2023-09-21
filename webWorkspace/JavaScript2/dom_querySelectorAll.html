@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : querySelectorALL()</title>
+    <script>
+        window.onload = function() {
+            // 여러 개 선택 가능 : 배열 반환
+            let headers = document.querySelectorAll('h1, #header1, .h2Cass1'); //태그 선택자 사용
+
+            // 배열로 처리
+            for(let i=0; i<headers.length; i++){
+                headers[i].style.color='blue';
+                headers[i].style.background = 'pink';
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+
+    <h1 id="header1">Header</h1>
+    <h1 id="header2">Header</h1>
+
+    <h2 class="h2Cass1">Header1</h2>
+    <h2 class="h2Cass1">Header1</h2>
+
+    <h2 class="h2Cass2">Header2</h2>
+    <h2 class="h2Cass2">Header2</h2>
+</body>
+</html>

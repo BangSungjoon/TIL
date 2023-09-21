@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자손 선택자</title>
+    <style>
+       div#header h1 { color: red;}
+       #section h2 { color: blue;}
+
+       /* 모든 자손에 #header 붙여야 함 */
+       #header h1, #header h2 { color: green;}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 class="title">header - h1 제목</h1>
+        <div id="nav">
+            <h1>header - nav - h1 제목</h1>
+            <h2>header - nav - h2 제목</h2>
+        </div>
+    </div>
+
+    <div id="section">
+        <h2 class="title">section - h2 제목</h2>
+    </div>
+</body>
+</html>
