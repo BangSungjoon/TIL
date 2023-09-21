@@ -4,7 +4,7 @@
 
 ### Git
 
-- [Basic Command](https://github.com/BangSungjoon/TIL/blob/master/Git/basic-command.md)
+- [Basic Command](https://github.com/BangSungjoon/TIL/blob/master/GitWorkspace/basic-command.md)
 
 # GitHub 와 Git
 
