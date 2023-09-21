@@ -8,7 +8,7 @@
 
 # GitHub 와 Git
 
-[https://git-scm.com/book/ko/v2](https://git-scm.com/book/ko/v2) <Git 교과서>
+[https://git-scm.com/book/ko/v2](https://git-scm.com/book/ko/v2) <Git 교과서><br>
 [https://github.com/verba-neo/TIL-multiit/blob/master/git/basic.md](https://github.com/verba-neo/TIL-multiit/blob/master/git/basic.md) <git 세팅과 명령어>
 
 ## why?
@@ -99,7 +99,7 @@ $ git restore --staged <file> # stage → working tree 다시 내리기
 
 ```bash
 $ git commit -m ‘변경 사항’ # file을 찰칵 찍어 사진첩으로 
-													 #stage → commits
+						   #stage → commits
 ```
 
 ### Commits, Snapshots
