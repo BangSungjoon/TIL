@@ -265,7 +265,7 @@ FROM 테이블명
 [WHERE 검색조건(들)]
 [GROUP BY 열이름]
 [HAVING 검색조건(들)]
-[ORDER BY 열이름 [ASC|DESC]
+[ORDER BY 열이름 [ASC|DESC]]
 
 -- [ ]안의 부분은 생략해도 상관없으나 순서는 반드시 지켜져야 한다.
 ```
