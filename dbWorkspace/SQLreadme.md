@@ -181,3 +181,103 @@ root 권한으로 생성
 7. Finish
 8. (잘못 만들었으면 삭제하면 됨 )
 우클릭  / Drop Schema
+
+```sql
+CREATE SCHEMA -- 스키마 생성
+DROP SCHEMA   -- 스키마 삭제
+```
+
+### 데이터 정의어 (DDL)
+
+테이블 생성 CREATE
+
+```sql
+CREATE TABLE 테이블명 (
+		열이름 데이터타입(크기) [제약조건]
+	);
+
+CREATE TABLE product(
+	prdNo VARCHAR(10) NOT NULL PRIMARY KEY,
+	prdName VARCHAR(30) NOT NULL
+);
+```
+
+참조 무결성 제약 조건 : 외래키 값을 입력할 때는 참조되는 테이블의 기본키로서의 값과 동일해야 함
+
+테이블 수정 ALTER
+
+```sql
+-- 기본키 / 외래키 삭제
+ALTER TABLE 테이블명 DROP PRIMARY KEY;
+ALTER TABLE 테이블명 DROP FOREIGN KEY 키이름;
+
+-- 기본키 / 외래키 추가
+ALTER TABLE 테이블명 ADD PRIMARY KEY (열이름);
+ALTER TABLE 테이블명 ADD FOREIGN KEY (열이름) REFERENCES 참조테이블명 (기본키 열이름);
+```
+
+ON DELETE CASCADE : 기준 테이블의 데이터가 삭제되었을 때, 외래키로 지정된 테이블의 데이터도 자동으로 삭제되도록 설정
+
+테이블 삭제 DROP
+
+```sql
+-- 테이블 삭제
+DROP TABLE;
+```
+
+---
+
+### 데이터 조작어 (DML)
+
+데이터 입력 INSERT
+
+```sql
+INSERT INTO 테이블명(열이름 리스트) VALUES(값 리스트)
+INSERT INTO student(stdNo, stdName, stdYear) VALUES('2023001', '홍길동', 1)
+```
+
+데이터 임포트 : CSV 파일을 읽어서 테이블 자동 생성 및 입력<br>
+[Table Data Import Wizard] / 파일 선택 / 테이블명 / 데이터 타입 설정
+
+데이터 수정 UPDATE
+
+```sql
+-- 조건에 맞는 행을 찾아서 열의 값 수정
+UPDATE 테이블명 SET 열=값 WHERE 조건;
+UPDATE product SET prdName= 'UHD TV'  WHERE predNo='5';
+```
+
+데이터 삭제 DELETE
+
+```sql
+-- 테이블에 있는 기존 행을 삭제하는 명령어
+DELETE FROM 테이블명 WHERE 조건;
+DELETE FROM product WHERE prdName='그늘막 텐트';
+-- 테이블의 모든 행 삭제
+DELETE FROM product;
+```
+
+데이터 검색 SELECT
+
+```sql
+SELECT [ALL|DISTINCT] 열이름 리스트  -- DISTINCT : 중복 제거
+FROM 테이블명
+[WHERE 검색조건(들)]
+[GROUP BY 열이름]
+[HAVING 검색조건(들)]
+[ORDER BY 열이름 [ASC|DESC]
+
+-- [ ]안의 부분은 생략해도 상관없으나 순서는 반드시 지켜져야 한다.
+```
+
+- GROUP BY 절<BR>
+그룹 쿼리를 기술할 때 사용<bR>
+특정 열로 그룹화 한 후 각 그룹에 대해 한 행 씩 쿼리 결과 생성
+- HAVING 절<br>
+GROUP BY 절에 의해 구성된 그룹들에 대해 적용할 조건 기술<BR>
+검색 조건에는 집계 함수가 와야 한다<BR>
+반드시! GROUP BY 절과 함께 사용!
+- ORDER BY 절
+특정 열의 값을 기준으로 쿼리 결과 정렬<BR>
+ASC : 오름차순 (디폴트 : 생략 가능)<BR>
+DESC : 내림차순
