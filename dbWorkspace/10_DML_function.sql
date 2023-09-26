@@ -102,3 +102,116 @@ SELECT DATEDIFF('2022-09-26', NOW()), TIMEDIFF('23:23:59', '12:11:10');
 SELECT DATEDIFF(NOW(), '2022-09-26'), TIMEDIFF('23:23:59', '12:11:10');
 
 
+-- ---------------------------------------------------------------
+CREATE TABLE flower(
+	flowerNo VARCHAR(10) NOT NULL PRIMARY KEY,
+    flowerName VARCHAR(30),
+    flowerInfo LONGTEXT,
+	flower LONGBLOB
+);
+
+INSERT INTO flower VALUES ('f002', '장미',
+	LOAD_FILE('C:/AI-backend/TIL/dbWorkspace/rose.txt'),
+    LOAD_FILE('C:/AI-backend/TIL/dbWorkspace/rose.jpg'));
+
+-- 파일 업로드/다운로드 경로 변수 확인
+SHOW variables LIKE 'secure_file_priv';
+
+-- 동영상 파일 저장
+CREATE TABLE movie (
+	movieId VARCHAR(10) NOT NULL PRIMARY KEY,
+    movieTitle VARCHAR(50),
+    movieDirector VARCHAR(20),
+    movieStar VARCHAR(20),
+    movieScript LONGTEXT,
+    movieFilm LONGBLOB
+);
+
+INSERT INTO movie VALUES ('1', '쉰들러 리스트', '스필버그', '리암 니슨',
+	LOAD_FILE('C:/AI-backend/TIL/dbWorkspace/movies/Schindler.txt'),
+    LOAD_FILE('C:/AI-backend/TIL/dbWorkspace/movies/Schindler.mp4'));
+
+SHOW variables LIKE 'max_allowed_packet';
+
+-- -----------------------------------------------------------------
+-- 테이블 데이터를 파일로 내보내기
+
+-- 도서 테이블 데이터를 텍스트 파일로 내보내기
+SELECT * FROM book
+	INTO OUTFILE 'C:/AI-backend/TIL/dbWorkspace/movies/book_out.txt';
+
+-- LONGTEXT 타입의 영화 대본 데이터를 텍스트 파일로 내보내기 : INTO OUTFILE
+SELECT movieScript FROM movie
+	INTO OUTFILE 'C:/AI-backend/TIL/dbWorkspace/movies/Schindler_out.txt';
+
+-- LONGTEXT 타입의 영화 대본 데이터를 텍스트 파일로 내보내기 
+-- 줄바꿈 문자로 출력되지 않도록 저장
+SELECT movieScript FROM movie
+	INTO OUTFILE 'C:/AI-backend/TIL/dbWorkspace/movies/Schindler_out2.txt'
+    LINES TERMINATED BY '\\n';
+
+-- 동영상 파일 : 바이너리 파일 내보내기 : INTO DUMPFILE
+SELECT movieFilm FROM movie
+	INTO DUMPFILE 'C:/AI-backend/TIL/dbWorkspace/movies/Schindler_out.mp4';
+
+
+-- --------------------------------------------------------
+
+-- 테이블 복사
+-- 복사 후 기본키(제약조건) 설정해야 함
+
+-- 테이블 복사1 : 새 테이블로 전체 복사 
+CREATE TABLE new_book1 AS
+SELECT * FROM book;
+
+describe new_book1;
+describe book;
+
+-- new_book1에 기본키/외래키 제약조건 추가  
+alter table new_book1 add primary key (bookno);
+alter table new_book1 add foreign key (pubno) references publisher (pubno);
+
+
+-- 테이블 복사2 : 새 테이블로 일부만 복사 
+-- book 테이블에서 도서출간일이 2021년 1월 1일 이후 도서들만 복사하여
+-- new_book2 테이블 생성 
+create table new_book2 as
+select * from book
+where bookDate >= '2021-01-01';
+
+alter table new_book2 add primary key (bookno);
+alter table new_book2 add foreign key (pubno) references publisher (pubno);
+describe new_book2;
+
+-- 테이블 복사3 : 이미 존재하는 테이블에 데이터만 복사 
+-- (테이블 구조가 동일한 경우에만 가능함)
+
+-- new_book2 테이블의 모든 데이터 삭제 (구조 유지)
+-- DELETE : 데이터만 삭제 (DML)
+DELETE FROM new_book2; 
+SELECT * FROM new_book2;
+
+-- 테이블 구조가 동일한 new_book2에 book 테이블의 모든 데이터 복사 
+INSERT INTO new_book2 SELECT * FROM book;
+
+-- -------------------------------------------------------
+
+-- 다른 데이터베이스의 테이블 복사 
+-- 데이터베이스명.테이블명 
+
+CREATE TABLE product AS
+SELECT * FROM sqldb2.product;
+
+SELECT * FROM product;
+describe product;
+alter table product add primary key (prdNo);
+
+
+
+
+
+
+
+
+
+
