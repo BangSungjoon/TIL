@@ -216,7 +216,7 @@ ALTER TABLE 테이블명 ADD PRIMARY KEY (열이름);
 ALTER TABLE 테이블명 ADD FOREIGN KEY (열이름) REFERENCES 참조테이블명 (기본키 열이름);
 ```
 
-ON DELETE CASCADE : 기준 테이블의 데이터가 삭제되었을 때, 외래키로 지정된 테이블의 데이터도 자동으로 삭제되도록 설정
+ON DELETE CASCADE : 기준 테이블의 데이터가 삭제되었을 때, 외래키로 지정된 테이블의 데이터도 자동으로 삭제되도록 설정한다.
 
 테이블 삭제 DROP
 
