@@ -12,8 +12,8 @@ WHERE clientNo = (SELECT clientNo
 				  FROM client
                   WHERE clientName = '호날두');
                   
--- 고객 호날두가 주문한 총주문수량 조회
--- (1) 서브 쿼리 : client 테이블에서 고객명으로 검색해서 clientNo 찾음
+-- 고객 호날두가 주문한 총 주문수량 조회
+-- (1) 서브 쿼리 : client 테이블에서 고객명으로 검색해서 clientNo 찾는다.
 -- (2) 메인 쿼리 : bookSale 테이블에서 찾은 clientNo에 해당되는 총주문수량 출력
 SELECT sum(bsQty) as 총주문수량
 FROM bookSale
