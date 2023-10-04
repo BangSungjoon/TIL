@@ -11,7 +11,7 @@ class Main:
         # 선택한 번호에 따라 controllerpd 클래스가 메소드 호출
 
         while True:
-            num = input("\n1.전체제품조회 2.제품등록 3.제품수정 4.제품삭제 5.검색 6.종료 : ")
+            num = input("\n1.전체 제품조회 2.제품등록 3.제품수정 4.제품삭제 5.검색 6.종료 : ")
 
             if num == '1':
                # 컨트롤러 클래스의 select() 호출
@@ -20,16 +20,15 @@ class Main:
                 # 컨트롤러 클래스의 insert() 호출
                 self.c.insert()
             elif num == '3':
-                # 컨트롤러 클래스의 insert() 호출
+                # 컨트롤러 클래스의 update() 호출
                 self.c.update()
             elif num == '4':
-                # 컨트롤러 클래스의 insert() 호출
+                # 컨트롤러 클래스의 delete() 호출
                 self.c.delete()
             elif num == '5':
-                # 컨트롤러 클래스의 insert() 호출
+                # 컨트롤러 클래스의 search() 호출
                 self.c.search()
             elif num == '6':
-                # 컨트롤러 클래스의 insert() 호출
                 print("종료합니다") 
                 break
             else:
