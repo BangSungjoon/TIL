@@ -49,7 +49,7 @@ class controllerpd:
         self.dao.update(product)
 
     def delete(self):
-        # 제품삭제
+        # 제품 삭제
         # 삭제할 제품번호 입력 
         # DAO 클래스의 delete() 호출하면서 제품번호 전달(DAO : DB에서 도서번호 해당되는 데이터 삭제)
         print("컨트롤러의 delete")
