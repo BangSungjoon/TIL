@@ -1,6 +1,6 @@
 # Today I Learn
 
-## Index
+## 목차
 
 ### Git
 * [Git과 GitHub](https://github.com/BangSungjoon/TIL/blob/master/GitWorkspace/GITreadme.md)
