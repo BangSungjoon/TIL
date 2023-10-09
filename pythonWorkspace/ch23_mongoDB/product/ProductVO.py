@@ -1,26 +1,26 @@
 class Product:
-    def __init__(self, pNo, pName, pPrice, pMaker, pColor, cNo):
-        self.__pNo = pNo
-        self.__pName = pName
-        self.__pPrice = pPrice
-        self.__pMaker = pMaker
-        self.__pColor = pColor
-        self.__cNo = cNo
+    def __init__(self, prdNo, prdName, prdPrice, prdMaker, prdColor, ctgNo):
+        self.__prdNo = prdNo
+        self.__prdName = prdName
+        self.__prdPrice = prdPrice
+        self.__prdMaker = prdMaker
+        self.__prdColor = prdColor
+        self.__ctgNo = ctgNo
 
     def get_pNo(self):
-        return self.__pNo
+        return self.__prdNo
 
     def get_pName(self):
-        return self.__pName
+        return self.__prdName
 
     def get_pPrice(self):
-        return self.__pPrice
+        return self.__prdPrice
 
     def get_pMaker(self):
-        return self.__pMaker
+        return self.__prdMaker
 
     def get_pColor(self):
-        return self.__pColor
+        return self.__prdColor
 
     def get_cNo(self):
-        return self.__cNo
+        return self.__ctgNo

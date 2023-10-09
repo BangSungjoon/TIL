@@ -1,90 +1,110 @@
-from ProductVO import *
-import pymysql
+from pymongo import MongoClient
+from datetime import datetime
+
 class ProductDAO:
     def __init__(self):
         self.conn = None
-        self.cursor = None
+        self.db = None
 
     def connect(self):
-        self.conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='1234')
-        self.cursor = self.conn.cursor()
-        sql = "USE sqldb4"
-        self.cursor.execute(sql)
+        # DB 연결 
+        self.conn = MongoClient(host='localhost' , port=27017)
+        self.db = self.conn.new_db
     
     def disconnect(self):
-        self.cursor.close()
+        # DB 접속 종료
         self.conn.close()
 
     def select(self):
         try:
             self.connect()
-            sql = "SELECT * FROM product"
-            self.cursor.execute(sql)
-            result = self.cursor.fetchall()
-            print("상품 정보 조회 완료")
+            result = self.db.product.find({
+                'prdNo': {'$exists': True},
+                'prdName': {'$exists': True},
+                'prdPrice': {'$exists': True}
+            })
+
+            for product in result:
+                print(
+                f"{product['prdNo']} {product['prdName']} {product['prdPrice']} "
+                f"{product['prdMaker']} {product['prdColor']} {product['ctgNo']}"
+                )
         except:
             print("selece error")
-        
-        for row in result:
-            for col in row:
-                print(col, end = ' ')
-            print()
 
         self.disconnect()
+        print("상품 정보 조회 완료")
     
     def insert(self, product):
-
-        self.connect()            
-        sql = "INSERT INTO product (prdNo, prdName, prdPrice, prdMaker, prdColor, ctgNo) VALUES(%s, %s, %s, %s, %s, %s)"
-        values = (product.get_pNo(), product.get_pName(), product.get_pPrice(), product.get_pMaker(), product.get_pColor(), product.get_cNo())
-        self.cursor.execute(sql, values)        
-        self.conn.commit()
-        print("상품 등록 완료")
-
-
+        try:
+            self.connect()
+            product_data = {
+                'prdNo': product.get_pNo(),
+                'prdName': product.get_pName(),
+                'prdPrice': product.get_pPrice(),
+                'prdMaker': product.get_pMaker(),
+                'prdColor': product.get_pColor(),
+                'ctgNo': product.get_cNo()
+            }
+            self.db.product.insert_one(product_data)
+            print("상품 등록 완료") 
+        except:
+            print("insert error")
+        
         self.disconnect()
+        
+        
 
     def update(self, product):
         try:
             self.connect()
-            self.connect()            
-            sql = "UPDATE product SET prdName = %s, prdPrice = %s, prdMaker = %s, prdColor = %s, ctgNo = %s where prdNo = %s"
-            values = (product.get_pName(), product.get_pPrice(), product.get_pMaker(), product.get_pColor(), product.get_cNo(), product.get_pNo())
-            self.cursor.execute(sql, values)        
-            self.conn.commit()
+            filter_prdNo = {'prdNo': product.get_pNo()}
+            update_data = {
+                '$set': {
+                    'prdName': product.get_pName(),
+                    'prdPrice': product.get_pPrice(),
+                    'prdMaker': product.get_pMaker(),
+                    'prdColor': product.get_pColor(),
+                    'ctgNo': product.get_cNo()
+                }
+            }
+            self.db.product.update_one(filter_prdNo, update_data)
             print("상품 정보 수정 완료")
         except:
             print("update error")
+        
+        self.disconnect()  
 
-        self.disconnect()
-
-    def delete(self, pNo):
+    def delete(self, prdNo):
         try:
             self.connect()
-            sql = "DELETE FROM product WHERE prdNo =" + pNo
-            self.cursor.execute(sql)
-            self.conn.commit()
-            print("상품 정보 삭제 완료")
+            del_pNo = {'prdNo': prdNo}
+            result = self.db.product.delete_one(del_pNo)
+            
+            if result.deleted_count == 1:
+                print(f"상품 정보 삭제 완료 (상품번호: {prdNo})")
+            else:
+                print(f"상품 정보를 찾을 수 없습니다 (상품번호: {prdNo})")
         except:
             print("delete error")
-
-        self.disconnect()
+        
+        self.disconnect()  
+        print()
     
     def search(self, values):
         try:
-            self.connect()
-            keyword_column = values[0]
-            keyword_value = values[1]
-            keyword_value = f"%{keyword_value}%"
-            sql = f"SELECT * FROM product WHERE {keyword_column} LIKE %s"
-            self.cursor.execute(sql, (keyword_value,))
-            result = self.cursor.fetchall()
-            print("상품 정보 검색 완료")
-            for row in result:
-                for col in row:
-                    print(col, end=' ')
-                print()
-        except Exception:
-            print("search error")
+            self.connect()            
+    
+            filter_query = {values['field']: {'$regex': values['value'], '$options': 'i'}}
+            result = self.db.product.find(filter_query)
+
+            for product in result:
+                print(
+                f"{product['prdNo']} {product['prdName']} {product['prdPrice']} "
+                f"{product['prdMaker']} {product['prdColor']} {product['ctgNo']}"
+                )  
+        except Exception as e:
+            print("search error:", e)
 
         self.disconnect()
+        print('\n도서 검색 완료')
