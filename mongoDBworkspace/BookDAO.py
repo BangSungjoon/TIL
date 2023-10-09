@@ -45,13 +45,13 @@ class BookDAO:
         # 2. insert 문 수행
         # 3. DB 접속 종료
         try:
-            self.connect()
+            self.connect()            
             book_data = {
                 'bookNo': book.get_bNo(),
                 'bookName': book.get_bName(),
                 'bookAuthor': book.get_bAuthor(),
                 'bookPrice': book.get_bPrice(),
-                'bookDate': datetime.strptime(book.get_bDate(), '%Y-%m-%d'),
+                'bookDate': book.get_bDate(),
                 'bookStock': book.get_bStock(),
                 'publisher': {'pubNo': book.get_pNo(), 'pubName': book.get_pName()}
             }
@@ -67,18 +67,18 @@ class BookDAO:
         # 수정된 데이터 DB 저장 : update 문 수행
         try:
             self.connect()
-            filter_bNo = {'bookNo': book.get_bNo()}
+            filter_bookNo = {'bookNo': book.get_bNo()}
             update_data = {
                 '$set': {
                     'bookName': book.get_bName(),
                     'bookAuthor': book.get_bAuthor(),
                     'bookPrice': book.get_bPrice(),
-                    'bookDate': datetime.strptime(book.get_bDate(), '%Y-%m-%d'),
+                    'bookDate': book.get_bDate(),
                     'bookStock': book.get_bStock(),
                     'publisher': {'pubNo': book.get_pNo(), 'pubName': book.get_pName()}
                 }
             }
-            self.db.book.update_one(filter_bNo, update_data)
+            self.db.book.update_one(filter_bookNo, update_data)
             print("도서 정보 수정 완료")
         except:
             print("update error")
