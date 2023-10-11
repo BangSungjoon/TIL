@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}   
+
+   <h2>도서 정보 조회</h2>
+   <table id="book_list">
+    <tr>
+        <th>도서번호</th>
+        <th>도서명</th>
+        <th>저자</th>
+        <th>도서가격</th>
+        <th>출간일</th>
+        <th>재고</th>
+        <th>출판사</th>
+        <th>수정</th>
+        <th>삭제</th>
+    </tr>
+    {% for b in books %}
+    <tr>
+        <td><a href="{% url 'book_detail' b.bookno %}">{{ b.bookno }}</a></td>
+        <td>{{ b.bookname }}</td>
+        <td>{{ b.bookauthor }}</td>
+        <td>{{ b.bookprice|intcomma }}</td>
+        <td>{{ b.bookdate}}</td>
+        <td>{{ b.bookstock }}</td>
+        <td>{{ b.pubno.pubname }}</td>
+        <td><button class="btn">수정</button></td>
+        <td><button class="btn">삭제</button></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

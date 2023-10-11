@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index 페이지</title>
+</head>
+<body>
+    <h2>데이터 입력 폼</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <!-- 폼 입력 보안 취약점을 방지하기 위한 보안 토큰 -->
+        <!-- 없으면 오류남!! -->
+        
+        <!-- 주의! name 속성 반드시 필요 (없으면 서버로 데이터 전송 안 됨) -->
+        이름 : <input type="text" name="name"> <br>
+        나이 : <input type="text" name="age"> <br>
+        <input type="submit" value="완료">
+    </form>
+
+</body>
+</html>

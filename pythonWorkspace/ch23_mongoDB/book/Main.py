@@ -8,7 +8,7 @@ class Main:
         print()
         # 메뉴 출력
         # 1.전체도서조회 2.도서등록 3.도서수정 4.도서삭제 5.검색 6.종료
-        # 선택한 번호에 따라 Controller 클래스가 메소드 호출
+        # 선택한 번호에 따라 Controller 클래스가 메소드를 호출
 
         while True:
             num = input("\n1.전체도서조회 2.도서등록 3.도서수정 4.도서삭제 5.검색 6.종료 : ")
@@ -33,7 +33,7 @@ class Main:
                 print("종료합니다") 
                 break
             else:
-                print("잘못 입력하였습니다")  
+                print("잘못 입력하였습니다")
 
 # 현재 모듈이 시작 모듈 
 if __name__ == "__main__":

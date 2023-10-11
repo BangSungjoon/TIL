@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index 페이지</title>
+</head>
+<body>
+    <h2>이미지 출력</h2>
+
+    <img src="{% static '/images/그림.PNG' %}"><br>
+
+    <br><br>
+    <!-- 이름 : {{ member.name}} <br>
+    나이 : {{ member.age }} -->
+
+    {% for member in members %}
+        이름 : {{ member.name}}, 나이 : {{member.age}} <br>
+    {% endfor %}
+</body>
+</html>

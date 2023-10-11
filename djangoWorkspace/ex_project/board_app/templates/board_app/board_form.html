@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>board_form 페이지</title>
+</head>
+<body>   
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <!-- 폼 입력 보안 취약점을 방지하기 위한 보안 토큰 -->
+        <!-- 입력 시 보안에 취약한 코드가 삽입되는 것 방지 -->
+        <!-- 주의! name 속성 반드시 필요 (없으면 서버로 데이터 전송 안 됨) -->
+        제목 : <input type="text" name ="title"> <br>
+        내용 : <input type="text" name ="content"> <br>
+        <input type="submit" value="완료">
+    </form>
+
+</body>
+</html>

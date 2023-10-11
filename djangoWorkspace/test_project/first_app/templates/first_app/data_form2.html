@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>index 페이지</title>
+</head>
+<body>
+    <body>
+        <h2>데이터 입력 폼</h2> 
+        <form method="post">
+            {% csrf_token %}
+            <!-- {{ form.as_p}} -->
+            <!-- {{ form.as_table}} -->
+            <table>
+                {{ form }}
+            </table>
+            <input type="submit" value="완료">    
+        </form>  
+    </body>  
+</body>
+</html>
