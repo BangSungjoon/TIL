@@ -3,5 +3,24 @@
         <li><a href="{% url 'index' %}">HOME</a></li>
         <li><a href="{% url 'product_list' %}">상품 정보 조회</a></li>
         <li><a href="{% url 'product_insert' %}">상품 등록</a></li>
+        <li><a href="{% url 'product_search_form' %}">상품 검색1</a></li>
+        <li><a href="{% url 'product_search_form2' %}">Ajax 상품 검색2</a></li>
+        <li><a href="{% url 'product_search_form3' %}">Ajax 상품 검색3</a></li>
+
+        <li><a href="{% url 'ajax_test' %}">ajax test</a></li>
+
+        {% if user.is_authenticated %}
+            {% comment %} 로그인 상태인 경우 {% endcomment %}
+            <li><a href="">{{ user.username }}님 로그인했음</a></li>
+            <li><a href="{% url 'sign_out' %}">로그아웃</a></li>
+        {% else %}
+            {% comment %} 로그아웃 상태인 경우 {% endcomment %}
+            <li><a href="{% url 'sign_in' %}">로그인</a></li>
+            <li><a href="{% url 'sign_in2' %}">로그인2</a></li>
+
+            <li><a href="{% url 'sign_up' %}">회원가입</a></li>
+            <li><a href="{% url 'sign_up2' %}">회원가입2</a></li>
+        {% endif %}
+
     </ul>
 </nav>

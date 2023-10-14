@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="sign_up_box">
+	<h3>회원가입2</h3>        
+    <form action="" method="post">
+        {% csrf_token %}         
+        <label class='lbl'>ID</label>   <input type="text" name='username'> <br>
+        <label class='lbl'>비밀번호</label>   <input type="password" name ='password'> <br>
+        <label class='lbl'>이메일</label>   <input type="text" name ='email'> <br>
+        <label class='lbl'>성명</label>    <input type="text" name='user_name'> <br>
+        <label class='lbl'>전화</label>    <input type="text" name='user_phone'> <br>
+        <label class='lbl'>주소</label>    <input type="text" name='user_address'> <br><br>
+        
+        <button type="submit" class='btn'>완료</button>        
+    </form>
+</div>
+{% endblock content %}

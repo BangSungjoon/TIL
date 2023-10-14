@@ -1,5 +1,5 @@
 from django import forms
-from .models import Book, Publisher
+from .models import Book
 
 class BookForm(forms.ModelForm):
     class Meta:
@@ -11,6 +11,7 @@ class BookForm(forms.ModelForm):
             'bookprice',
             'bookdate',
             'bookstock',
+            'pubno'
         )
 
         labels = {
@@ -20,10 +21,5 @@ class BookForm(forms.ModelForm):
             'bookprice': '도서가격',
             'bookdate': '출간일',
             'bookstock': '재고',
+            'pubno':'출판사번호'
         }
-
-    # Publisher 모델과의 관련 정보를 입력받을 추가 필드
-    pubno = forms.CharField(label='출판사 번호')
-    pubname = forms.CharField(label='출판사')
-
-    # 폼 저장(logic) 로직도 추가해야 함

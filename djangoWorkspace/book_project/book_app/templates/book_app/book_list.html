@@ -12,6 +12,7 @@
         <th>도서가격</th>
         <th>출간일</th>
         <th>재고</th>
+        <th>출판사 번호</th>
         <th>출판사</th>
         <th>수정</th>
         <th>삭제</th>
@@ -24,8 +25,9 @@
         <td>{{ b.bookprice|intcomma }}</td>
         <td>{{ b.bookdate}}</td>
         <td>{{ b.bookstock }}</td>
+        <td>{{ b.pubno.pubno }}</td>
         <td>{{ b.pubno.pubname }}</td>
-        <td><button class="btn">수정</button></td>
+        <td><a href="{% url 'book_update' b.bookno %}"><button class="btn">수정</button></a></td>
         <td><button class="btn">삭제</button></td>
     </tr>
     {% endfor %}

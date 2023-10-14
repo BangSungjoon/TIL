@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 from .forms import ProductForm
+from django.db.models import Q
+from django.http import JsonResponse
+import json
+from django.core import serializers
 
 def index(request):
     return render(request, 'product_app/index.html')
@@ -80,3 +84,100 @@ def product_delete(request, prd_no):
 
     # 상품 조회 화면으로 이동 (포워딩)
     return redirect('product_list')
+
+
+# 검색창 열기
+def product_search_form(request):
+    return render(request, 'product_app/product_search_form.html')
+
+# 검색 쿼리 수행
+def product_search(request):
+    if request.method == "POST":
+        type = request.POST['type']
+        keyword = request.POST['keyword']
+
+        print(type, keyword)
+
+        prd_list = Product.objects.filter(Q(prd_name__contains=keyword) | Q(prd_maker__contains=keyword))
+
+        return render(request, 'product_app/product_search_form.html', {'prd_list':prd_list})
+    
+
+def ajax_test(request):
+    return render(request, 'product_app/ajax_test.html')
+
+# Ajax 연습 : 데이터만 전송
+def get_data(request):
+    data = {'name' : '홍길동'}
+
+    return JsonResponse(data)
+
+
+# Ajax를 사용한 검색
+# 검색창 열기
+def product_search_form2(request):
+    return render(request, 'product_app/product_search_form2.html')
+
+
+# 검색 기능 수행하고 결과를 JsonResponse로 반환
+def product_search2(request):
+    if request.method == "POST":
+        type = request.POST['type']
+        keyword = request.POST['keyword']
+
+        print(type, keyword)
+
+        prd_list = Product.objects.filter(Q(prd_name__contains=keyword) | Q(prd_maker__contains=keyword))
+
+        # prd_list 쿼리 데이터 셋을 JSON 타입으로 변환
+        prd_list_json = json.loads(serializers.serialize('json', prd_list, ensure_ascii=False))
+
+        return JsonResponse({'reload_all':False, 'prd_list_json':prd_list_json})
+    
+
+
+# # Ajax를 사용한 검색
+# # 검색창 열기
+# def product_search_form3(request):
+#     return render(request, 'product_app/product_search_form2.html')
+
+
+# # 검색 기능 수행하고 결과를 JsonResponse로 반환
+# def product_search3(request):
+#     if request.method == "POST":
+#         type = request.POST['type']
+#         keyword = request.POST['keyword']
+
+#         print(type, keyword)
+
+#         prd_list = Product.objects.filter(Q(prd_name__contains=keyword) | Q(prd_maker__contains=keyword))
+
+#         # prd_list 쿼리 데이터 셋을 JSON 타입으로 변환
+#         prd_list_json = json.loads(serializers.serialize('json', prd_list, ensure_ascii=False))
+
+#         return render(request, 'product_app/product_search3_result.html', {'prd_list':prd_list})
+    
+
+# Ajax를 사용한 검색
+# 검색창 열기
+def product_search_form3(request):
+    return render(request, 'product_app/product_search_form3.html')
+
+
+# 검색 기능 수행하고 결과를 JsonResponse로 반환
+def product_search3(request):
+    if request.method == "POST":
+        type = request.POST['type']
+        keyword = request.POST['keyword']
+
+        print(type, keyword)
+
+        if type == "prd_name":
+            prd_list = Product.objects.filter(Q(prd_name__contains=keyword)) 
+        else:
+            prd_list = Product.objects.filter(Q(prd_maker__contains=keyword))
+            
+        # prd_list 쿼리 데이터 셋을 JSON 타입으로 변환
+        prd_list_json = json.loads(serializers.serialize('json', prd_list, ensure_ascii=False))
+
+        return render(request, 'product_app/product_search3_result.html', {'prd_list':prd_list})

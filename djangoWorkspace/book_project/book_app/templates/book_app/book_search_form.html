@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}   
+
+<h2>도서 검색</h2>
+<form id='bSearchFrm' method="post">
+    {% csrf_token %}
+    <select name="type" id="type">
+        <option value="">검색조건 선택</option>
+        <option value="bookname">도서명</option>
+        <option value="bookauthor">저자</option>
+    </select>
+    <input type="text" name="keyword" id="keyword">
+    <input type="submit" value="검색">
+</form><br><br>
+
+<div id="searchResultBox"></div>
+
+{% endblock content %}
