@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('bookname', models.TextField(blank=True, db_column='bookName', null=True)),
                 ('bookauthor', models.TextField(blank=True, db_column='bookAuthor', null=True)),
                 ('bookprice', models.IntegerField(blank=True, db_column='bookPrice', null=True)),
-                ('bookdate', models.TextField(blank=True, db_column='bookDate', null=True)),
+                ('bookdate', models.TextField(blank=True, db_column='bookDate')),
                 ('bookstock', models.IntegerField(blank=True, db_column='bookStock', null=True)),
                 ('pubno', models.IntegerField(blank=True, db_column='pubNo', null=True)),
             ],
