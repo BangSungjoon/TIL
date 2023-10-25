@@ -88,4 +88,3 @@ def book_search(request):
         book_list_json = json.loads(serializers.serialize('json', book_list, ensure_ascii=False))
 
         return JsonResponse({'reload_all':False, 'book_list_json':book_list_json})
-    

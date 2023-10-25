@@ -4,5 +4,16 @@
         <li><a href="{% url 'book_list' %}">도서 정보 조회</a></li>
         <li><a href="{% url 'book_insert' %}">도서 등록</a></li>
         <li><a href="{% url 'book_search_form' %}">도서 검색</a></li>
+
+        {% if user.is_authenticated %}
+            {% comment %} 로그인 상태인 경우 {% endcomment %}
+            <li><a href="">{{ user.username }}님 로그인했음</a></li>
+            <li><a href="{% url 'sign_out' %}">로그아웃</a></li>
+        {% else %}
+            {% comment %} 로그아웃 상태인 경우 {% endcomment %}
+            <li><a href="{% url 'sign_in' %}">로그인</a></li>
+
+            <li><a href="{% url 'sign_up' %}">회원가입</a></li>
+        {% endif %}
     </ul>
 </nav>

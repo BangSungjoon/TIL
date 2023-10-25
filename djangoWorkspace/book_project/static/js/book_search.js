@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    $('#bSearchFrm').on('submit', function(){
-
+    $('#bSearchFrm').on('submit', function(event){
         // submit 이벤트 기본 기능 : 페이지 새로고침
         // 페이지 새로고침 되지 않도록
         event.preventDefault();
@@ -11,9 +10,9 @@ $(document).ready(function(){
 
         $.ajax({
             type:'post',
-            url:'http://127.0.0.1:8000/book/search/',
+            url:'http://127.0.0.1:8000/book/search_form/',
             data:formData,
-            datatype:'json',
+            dataType: 'json',
             success:function(result){
                 console.log(result)
                 console.log(result.book_list_json)
@@ -52,13 +51,13 @@ $(document).ready(function(){
                             book_list[i].fields.bookname + '</td><td>' + 
                             book_list[i].fields.bookauthor + '</td><td>' + 
                             book_list[i].fields.bookprice + '</td><td>' + 
-                            book_list[i].fields.bookdate + '</td><td>' + 
+                            str(book_list[i].fields.bookdate) + '</td><td>' + 
                             book_list[i].fields.bookstock + '</td><td>' + 
                             book_list[i].fields.pubno + '</td></tr>');
                     }
                 }
 
-                $('#book_list').append('</table>');
+                $('#searchResultBox').append('</table>');
             },
             error:function(){
                 // 오류 발생 시 수행되는 함수
