@@ -96,7 +96,7 @@ def factorial_recurcive(n):
 # 따라서 실행될 때는 while문이 됨으로 stack overflow 터지지 않고 실행속도에도 문제가 없음
 
 # 하지만 파이썬은 꼬리재귀최적화를 지원하지 않는다.
-# 파이썬에서는 재귀함수 최대한 쓰지말기
+# 파이썬에서는 재귀함수 최대한 쓰지않도록 한다.
 def factorial_tail(n, result=1):
     if(n == 0 or n == 1) : return result
     return factorial_tail(n-1, n * result)
