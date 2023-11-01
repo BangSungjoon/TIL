@@ -100,3 +100,23 @@ def factorial_recurcive(n):
 def factorial_tail(n, result=1):
     if(n == 0 or n == 1) : return result
     return factorial_tail(n-1, n * result)
+
+# 피보나치 수열
+def fibonacci(n):
+    if n < 1 : return -1
+    
+    prev, cur = 1, 1
+    for i in range(3, n+1):
+        prev, cur = cur, prev+cur
+    
+    return cur
+# 재귀함수로 푸는 법 : 중간 연산값을 기억하고 있지 않기 때문에
+# 매번 계산을 다한다. 시간복잡도가 n^2으로 늘어난다.
+def fibo_recur(n):
+    if n < 0 : return -1
+    if n == 0:
+        return 0
+    if n == 1 or n == 2:
+        return 1
+    
+    return fibonacci(n-2) + fibonacci(n-1)

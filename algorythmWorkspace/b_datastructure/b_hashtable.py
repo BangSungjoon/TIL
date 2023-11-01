@@ -11,7 +11,7 @@ class Node:
         return 31 * sum([ord(s) for s in self.key]) # aaabb [97,97,97,98,98]
     
     def __str__(self):
-        return "{key=" + self.key + ", data=" + self.data + "}"
+        return "{key=" + self.key + ", data=" + str(self.data) + "}"
 
 
 class DuplicateKey(RuntimeError): pass
@@ -32,8 +32,7 @@ class HashTable:
     def __set(self, link, node):
         if(link == node) : 
             link.data = node.data
-            raise DuplicateKey
-    
+            raise DuplicateKey    
     
     def __add_context(self, key:str, data, callback_fn):
         if type(key) is not str:
@@ -75,25 +74,24 @@ class HashTable:
         
     
     def __str__(self):
-        res = []
+         res= []
+         for link in self.table:
+             if link is None : continue          
 
-        for link in self.table:
-            if link is None : continue
-            
-            while(True):
-                res.append(str(link))
-                if link.next is None : 
-                    break
-                link = link.next
+             while(True):             
+                 res.append(str(link))
+                 if link.next is None :                     
+                     break
+                 link = link.next          
 
-        return str(res)
-    
+         return str(res)
+
     def get(self, key: str):
         if type(key) is not str:
             raise TypeError("key가 str이 아님")
         
         node = Node(key, None)
-        index = self.hash(Node(key, None))
+        index = self.hash(node)
         link = self.table[index]
 
         if link is None : return None
@@ -108,8 +106,36 @@ class HashTable:
         return None
     
     def remove(self, key:str):
-        pass # 과제 : 탐색 + 삭제
-
+        if type(key) is not str:
+            raise TypeError("key가 str이 아님")              
+        
+        node = Node(key, None)
+        idx = self.hash(node)        
+        
+        link = self.table[idx]              
+        if link is None : return        
+                
+        if link == node:
+            self.table[idx] = self.table[idx].next
+            self.length -= 1
+            return
+                
+        prev = link
+        link = link.next
+        
+        while(True):
+            if link is None:                
+                return 
+            
+            if link == node:
+                prev.next = link.next
+                self.length -= 1
+                return None
+            
+            prev = link
+            link = link.next
+        
+        return None
 
     def __contains__(self, key:str):
         if type(key) is not str:
@@ -117,17 +143,17 @@ class HashTable:
         
         return True if self.get(key) is not None else False
 
-
     def __iter__(self):
         return HashTable.Iterator(self)
 
     class Iterator:
+
         def __init__(self, hashtable):
             self.table = hashtable.table
             self.size = hashtable.length
             self.p1 = 0
             self.node = None
-            self.iter_cnt = 0
+            self.iter_cnt  = 0
 
         def __iter__(self):
             return self
@@ -137,15 +163,15 @@ class HashTable:
                 raise StopIteration
             
             while self.table[self.p1] is None:
-                self.p1 += 1
-
+                self.p1 += 1 
+            
             if self.node is None:
                 self.node = self.table[self.p1]
-            
+
             if self.node.next is None:
                 self.p1 += 1
 
-            res = self.node.data
+            res = self.node
 
             self.iter_cnt += 1
             self.node = self.node.next

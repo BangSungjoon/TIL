@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append(r'C:\CODE\mc_2023_algorythm\b_datastructure')
+sys.path.append(r'C:\AI-backend\TIL\algorythmWorkspace\b_datastructure')
 from a_list import LinkedList
 
 class ListTest(unittest.TestCase):       
