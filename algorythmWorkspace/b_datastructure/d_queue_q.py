@@ -22,3 +22,20 @@ def q1(n):
 
     trash.enqueue(cards.dequeue())
     return trash
+
+# 요세푸스 문제
+def q2(n, k):
+    queue = Queue()
+    dead = []
+
+    for i in range(1, n+1):
+        queue.enqueue(i)
+
+    while not queue.is_empty():
+        cnt = 1
+        while cnt < k:
+            queue.enqueue(queue.dequeue())
+            cnt += 1
+        
+        dead.append(queue.enqueue())
+    return dead
