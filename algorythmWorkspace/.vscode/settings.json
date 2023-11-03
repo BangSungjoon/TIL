@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./b_datastructure"
+    ]
+}

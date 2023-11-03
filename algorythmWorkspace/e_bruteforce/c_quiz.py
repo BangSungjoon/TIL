@@ -41,4 +41,13 @@ def doom_day2(n):
 # 아홉 난쟁이의 키가 주어졌을 때, 백설공주를 도와 일곱 난쟁이를 찾는
 # 프로그램을 작성하시오.
 def q2(arr):
-    pass
+    s = sum(arr)
+    for i in range(len(arr) -1):
+        for j in range(i+1, len(arr)):
+            if s - (arr[i] + arr[j]) == 100:
+                a, b = arr[i], arr[j]
+                arr.remove(a)
+                arr.remove(b)
+                return arr
+            
+    return None
