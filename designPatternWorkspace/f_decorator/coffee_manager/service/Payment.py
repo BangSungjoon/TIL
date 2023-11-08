@@ -1,6 +1,5 @@
-from service.PercentDiscount import *
 from service.Account import Account
-
+from service.PercentDiscount import *
 
 class Payment:
     def __init__(self, order):

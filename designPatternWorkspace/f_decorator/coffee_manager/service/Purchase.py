@@ -1,6 +1,5 @@
 from service.Account import Account
 
-
 class Purchase:
     def __init__(self, coffee, purchase_cnt):
         self.__coffee = coffee

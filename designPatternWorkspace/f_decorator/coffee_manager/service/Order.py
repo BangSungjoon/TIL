@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from service.OrderStatus import OrderStatus
+
 class Order:
     
     def __init__(self, coffee, order_cnt):
@@ -8,13 +10,13 @@ class Order:
         self.__order_time = datetime.now()
         self.__order_price = coffee.get_price() * order_cnt
         self.__order_title = f'{coffee.get_name()} [{order_cnt}잔]'
+        self.status = OrderStatus.PREPARE
         
     @staticmethod
     def create_order(coffee, order_cnt):
-        if order_cnt > coffee.get_stock():
-            return None
-        
-        return Order(coffee, order_cnt)
+        order = Order(coffee, order_cnt)
+        order.status = OrderStatus.check_order_status(order)        
+        return order
     
     def execute(self):
         self.__coffee.offer(self.__order_cnt)

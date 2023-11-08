@@ -17,24 +17,24 @@ class Coffee:
         self.__add_total_sales_cnt(order_cnt)
         
         # 재고가 안전재고 미만으로 내려가면 안전재고 확보
-        if self.__stock < self.__safety_stock:
+        if self._stock < self._safety_stock:
             self.__add_safety_stock()
     
     def add_stock(self, cnt):
         self.__add_stock(cnt)
 
     def __add_stock(self, cnt):
-        self.__stock += cnt
+        self._stock += cnt
     
     def __deduct_stock(self, order_cnt):
-        self.__stock -= order_cnt
+        self._stock -= order_cnt
     
     def __add_total_sales_cnt(self, order_cnt):
-        self.__total_sales_cnt += order_cnt
+        self._total_sales_cnt += order_cnt
         
     def __add_safety_stock(self):
         print('[system:log] 재고가 부족해 안전재고를 확보합니다.')
-        purchase = Purchase(self, self.__safety_stock * 2)
+        purchase = Purchase(self, self._safety_stock * 2)
         
         if purchase.execute():
             print('[system:log] 안전재고 확보에 성공했습니다.')
@@ -42,37 +42,36 @@ class Coffee:
             print('[system:log] 안전재고 확보에 실패했습니다.')
     
     def get_name(self):
-        return self.__name
-
-    def set_name(self, name):
-        self.__name = name
+        return self._name
 
     def get_stock(self):
-        return self.__stock
+        return self._stock
+
+    def get_total_sales_cnt(self):
+        return self._total_sales_cnt
 
     def get_safety_stock(self):
-        return self.__safety_stock
-
+        return self._safety_stock
 
     def get_cost(self):
-        return self.__cost
+        return self._cost
 
     def get_price(self):
-        return self.__price
+        return self._price
 
     def __str__(self):
         return (
             "Coffee [name="
-            + self.__name
+            + self._name
             + ", stock="
-            + str(self.__stock)
+            + str(self._stock)
             + ", totalSalesCnt="
-            + str(self.__total_sales_cnt)
+            + str(self._total_sales_cnt)
             + ", safetyStock="
-            + str(self.__safety_stock)
+            + str(self._safety_stock)
             + ", cost="
-            + str(self.__cost)
+            + str(self._cost)
             + ", price="
-            + str(self.__price)
+            + str(self._price)
             + "]"
         )

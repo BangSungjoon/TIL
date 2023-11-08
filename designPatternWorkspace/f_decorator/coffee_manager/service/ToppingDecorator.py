@@ -8,9 +8,15 @@ class ToppingDecorator(Coffee):
             , coffee._cost
             , coffee._stock
             , coffee._safety_stock
-            , coffee._sales_cnt)
+            , coffee._total_sales_cnt)
         
         self.__coffee = coffee
+        
+    def get_origin(self):
+        if isinstance(self.__coffee, ToppingDecorator):
+            return self.__coffee.get_origin()
+        else : 
+            return self.__coffee
         
     def offer(self, order_cnt):
         self.__coffee.offer(order_cnt)

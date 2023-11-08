@@ -5,7 +5,7 @@ class ChocoDecorator(ToppingDecorator):
         super().__init__(coffee)
         self.__coffee = coffee
         self.__topping_price = 500
-
+    
     def get_price(self):
         return self.__coffee.get_price() + self.__topping_price
     

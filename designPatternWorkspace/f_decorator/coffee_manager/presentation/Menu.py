@@ -68,7 +68,7 @@ class Menu:
             input_option = int(input())
             
             if input_option < 0 or input_option > 2 :
-                print(' *  옵션을 잘 못 선택하셨습니다.')
+                print(' *  옵션을 잘못 선택하셨습니다.')
                 continue
             
             if input_option == 2:
@@ -84,13 +84,14 @@ class Menu:
 
         for i in toppings:
             coffee = decors.get(i)(coffee)
-
-        order = Order.create_order(self.drinks[input_code], order_cnt)
-        if order is None:
-            print('주문량이 상품 재고보다 많습니다.')
+        
+        order = Order.create_order(coffee, order_cnt)
+        if order.status.is_fail():
+            print(order.status.desc)
             return
         
         payment = self.sales.take_order(order)
+        self.order_result(payment)
         
 
     def order_result(self, payment):
