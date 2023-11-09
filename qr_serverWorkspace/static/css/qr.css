@@ -1,0 +1,68 @@
+html{
+    font-size: 1vw;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    height:90vh;
+    width:60rem;
+
+}
+
+.wrap_qr{
+    display: flex;
+    height:24rem;
+    width:60rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.inp_qr{
+    width: 40rem;
+    height: 4rem;
+    border-radius: 2rem;
+    border: 0;
+    font-size: 2rem;
+    background-color: white;
+}
+
+.welcome{
+    font-size: 3rem;
+    color:white;
+}
+
+.weather{
+    height:5vh;
+    min-height: 5vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.txt_weather{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
+
+.location{
+    height: 5vh;
+    min-height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.txt_location{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+}
