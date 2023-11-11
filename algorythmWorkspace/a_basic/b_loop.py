@@ -164,3 +164,39 @@ def q6():
         print()
         n -= 1
         white_space += 1
+
+
+
+# def decrypt(original, key):
+#     result = []  # 원본 문자열을 저장할 리스트
+
+#     # 암호화된 문자열을 리스트로 변환
+#     encrypted_list = list(original)
+
+#     for char in key:
+#         # 키 문자열의 글자를 찾아서 제거
+#         if char in encrypted_list:
+#             # 가장 먼저 나오는 글자부터 제거
+#             encrypted_list.remove(char)
+#         else:
+#             # 키 문자열의 글자가 여러 번 나오는 경우 처리
+#             for i in range(len(encrypted_list)):
+#                 if encrypted_list[i] == char:
+#                     encrypted_list.pop(i)
+#                     break
+
+#     # 복호화된 문자열을 생성
+#     result = ''.join(encrypted_list)
+
+#     return result
+
+def decrypt(original, key):
+    # 초기화된 빈 문자열을 만듭니다.
+    decrypted_string = ""
+    
+    # 인코딩된 문자열을 반복하면서 키의 문자가 나타나지 않으면 추가합니다.
+    for char in original:
+        if char not in key:
+            decrypted_string += char
+    
+    return decrypted_string
