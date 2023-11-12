@@ -194,9 +194,15 @@ def decrypt(original, key):
     # 초기화된 빈 문자열을 만듭니다.
     decrypted_string = ""
     
-    # 인코딩된 문자열을 반복하면서 키의 문자가 나타나지 않으면 추가합니다.
-    for char in original:
-        if char not in key:
-            decrypted_string += char
+    # 키 문자열을 순서대로 확인하면서 해당 문자를 찾아 제거합니다.
+    for char in key:
+        if char in original:
+            # 문자를 찾아서 제거
+            original = original.replace(char, "", 1)
+    
+    # 제거된 문자열을 결과에 추가
+    decrypted_string = original
     
     return decrypted_string
+
+# baabccbc
