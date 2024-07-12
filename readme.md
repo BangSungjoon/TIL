@@ -16,3 +16,5 @@
 * [Remote Repository](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/REMOTE_REPO_TIL.md)
 * [Markdown과 CLI](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/Markdown_CLI_TIL.md)
 * [RobotQuest](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/RobotQuestTIL.md)
+* [AI 프롬프트 엔지니어링](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/AI_PROM_TIL.md)
+  
