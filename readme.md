@@ -1,6 +1,14 @@
 # Today I Learn
 
-## index
+## python 백엔드 개발 공부와 SSAFY 12기에서의 학습하는 내용을 모두 정리합니다.
+
+---
+
+## 규칙
+- 절대 **이해하지** 못한 내용은 대충 적지 않습니다.
+---
+## 작성법
+- **마크다운 형식**으로 작성
 
 ### Git
 * [Git과 GitHub](https://github.com/BangSungjoon/TIL/blob/master/GitWorkspace/GITreadme.md)
