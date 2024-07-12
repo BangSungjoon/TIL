@@ -54,12 +54,12 @@ working directory에서 변경된 파일 중 다음 버전에 포함 시킬 파�
 ### git init
 
 로컬 저장소 설정(초기화)
-→ git의 버전 관리를 시작할 디렉토리에서 진행
+→ git의 버전 관리를 시작할 디렉토리에서 진행<br>
 주의 사항! git 로컬 저장소 내에 또 다른 git 로컬 저장소를 만들지 말 것
 
 ### git add
 
-변경사항이 있는 파일을 staging area에 추가
+변경사항이 있는 파일을 staging area에 추가<br>
 `git add .` : 현재 경로에서 발생한 모든 수정 사항을 staging area로 옮겨라
 
 ### git commit
