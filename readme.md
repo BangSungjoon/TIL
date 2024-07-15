@@ -25,4 +25,5 @@
 * [Markdown과 CLI](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/Markdown_CLI_TIL.md)
 * [RobotQuest](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/RobotQuestTIL.md)
 * [AI 프롬프트 엔지니어링](https://github.com/BangSungjoon/TIL/blob/master/StartCamp/AI_PROM_TIL.md)
-  
+* [Python 기초](https://github.com/BangSungjoon/TIL/blob/master/pythonWorkspace/01-fundamentals-of-python.ipynb)
+* [Python data_type](https://github.com/BangSungjoon/TIL/blob/master/pythonWorkspace/02-data-types.ipynb)
