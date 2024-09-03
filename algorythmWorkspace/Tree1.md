@@ -40,7 +40,7 @@
 
 ### 용어 정리
 
-![image.png](./image/tree1.png.png)
+![image.png](./image/tree1.png)
 
 - 노드(node) - 트리의 원소
     - 트리 T의 노드 - A, B, C, D, E, F, G, H, I, J, K
