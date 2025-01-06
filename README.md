@@ -52,6 +52,7 @@ TIL <br>
 
 ### 프로젝트 이론
 - [관통 프로젝트](https://github.com/BangSungjoon/TIL/blob/master/Penetrating_Project)
+- [Skills](https://github.com/BangSungjoon/TIL/blob/master/Skills)
 
 ### Tool
 - [Git과 GitHub](https://github.com/BangSungjoon/TIL/blob/master/GitWorkspace/GITreadme.md)
