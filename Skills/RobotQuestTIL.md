@@ -67,5 +67,3 @@ async def main():
 runloop.run(main())
 # 라인트레이싱
 ```
-
-열정 있는 팀원 덕분에 1등을 할 수 있었다.
