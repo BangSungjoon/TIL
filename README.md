@@ -37,7 +37,7 @@ TIL <br>
 ## 🚢 바로가기
 ### Langauage
 - [python](https://github.com/BangSungjoon/TIL/blob/master/pythonWorkspace)
-- [python design pattern](https://github.com/BangSungjoon/TIL/blob/master/designPatternWorkspace)
+- [design pattern](https://github.com/BangSungjoon/TIL/blob/master/designPatternWorkspace)
 - [javascript](https://github.com/BangSungjoon/TIL/blob/master/JavaScript)
 - [알고리즘](https://github.com/BangSungjoon/TIL/blob/master/algorythmWorkspace)
 
